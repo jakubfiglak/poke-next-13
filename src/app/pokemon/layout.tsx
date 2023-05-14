@@ -5,10 +5,11 @@ type PokemonLayoutProps = {
   modal: ReactNode;
 };
 
-const PokemonLayout = ({ children }: PokemonLayoutProps) => {
+const PokemonLayout = ({ children, modal }: PokemonLayoutProps) => {
   return (
     <>
       {children}
+      {modal}
       <footer>This is the footer present only on /pokemon routes</footer>
     </>
   );
