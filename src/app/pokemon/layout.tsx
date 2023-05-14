@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 type PokemonLayoutProps = {
   children: ReactNode;
+  modal: ReactNode;
 };
 
 const PokemonLayout = ({ children }: PokemonLayoutProps) => {
