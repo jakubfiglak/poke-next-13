@@ -2,6 +2,7 @@ import { Navigation } from "@/components/navigation";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={twMerge(inter.className, "bg-black text-white")}>
         <header>
           <Navigation />
         </header>

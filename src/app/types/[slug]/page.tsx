@@ -1,4 +1,5 @@
 import { pokemonTypes } from "@/modules/pokemon-types/api";
+import { PokemonCard } from "@/modules/pokemon/components/pokemon-card";
 
 export async function generateStaticParams() {
   const { results: types } = await pokemonTypes.getAll();
@@ -18,13 +19,15 @@ const PokemonTypePage = async ({ params }: PokemonTypePageProps) => {
   return (
     <div>
       <h1 className="text-3xl mb-4">Type {params.slug} Page</h1>
-      <div className="flex flex-wrap gap-3">
+      <ul className="flex flex-wrap gap-3">
         {data.pokemon.map(({ pokemon }) => (
-          <div key={pokemon.name} className="p-4 border rounded-md">
-            <h3 className="uppercase">{pokemon.name}</h3>
-          </div>
+          <PokemonCard
+            name={pokemon.name}
+            key={pokemon.name}
+            className="w-48"
+          />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
