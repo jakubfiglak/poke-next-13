@@ -34,9 +34,13 @@ export const PokemonCard = async ({ name, className }: PokemonCardProps) => {
       </Link>
       <div className="flex gap-2 flex-wrap mt-auto">
         {data.types.map(({ type: { name } }) => (
-          <span key={name} className="border rounded-full px-3 py-1 text-xs">
+          <Link
+            key={name}
+            href={`/types/${name}`}
+            className="border rounded-full px-3 py-1 text-xs transition-colors hover:text-cyan-300 hover:border-cyan-300"
+          >
             {name}
-          </span>
+          </Link>
         ))}
       </div>
     </div>
