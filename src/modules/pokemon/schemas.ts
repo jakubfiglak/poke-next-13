@@ -6,7 +6,7 @@ export const pokemonSchema = z.object({
   height: z.number(),
   weight: z.number(),
   sprites: z.object({
-    front_default: z.string().url(),
+    front_default: z.string().url().nullable(),
   }),
   types: z.array(
     z.object({

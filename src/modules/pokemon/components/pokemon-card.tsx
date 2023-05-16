@@ -20,13 +20,15 @@ export const PokemonCard = async ({ name, className }: PokemonCardProps) => {
       )}
     >
       <h3 className="uppercase mb-2">{name}</h3>
-      <Image
-        alt={data.name}
-        src={data.sprites.front_default}
-        height={80}
-        width={80}
-        className="mx-auto mb-2"
-      />
+      {data.sprites.front_default && (
+        <Image
+          alt={data.name}
+          src={data.sprites.front_default}
+          height={80}
+          width={80}
+          className="mx-auto mb-2"
+        />
+      )}
       <div className="flex gap-2 flex-wrap mt-auto">
         {data.types.map(({ type: { name } }) => (
           <span key={name} className="border rounded-full px-3 py-1 text-xs">
