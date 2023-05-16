@@ -1,6 +1,5 @@
 import { pokemonTypes } from "@/modules/pokemon-types/api";
 import Link from "next/link";
-import { z } from "zod";
 
 const TypesPage = async () => {
   const data = await pokemonTypes.getAll();

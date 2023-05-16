@@ -1,4 +1,4 @@
-import { typeBasicInfoResponseSchema } from "./schemas";
+import { typeBasicInfoResponseSchema, typeSchema } from "./schemas";
 
 export const pokemonTypes = {
   getAll: async () => {
@@ -15,5 +15,16 @@ export const pokemonTypes = {
     const data = await res.json();
 
     return typeBasicInfoResponseSchema.parse(data);
+  },
+  getByName: async (name: string) => {
+    const res = await fetch(`https://pokeapi.co/api/v2/type/${name}`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const data = await res.json();
+
+    return typeSchema.parse(data);
   },
 };
