@@ -21,6 +21,7 @@ const PokemonTypePage = async ({ params }: PokemonTypePageProps) => {
       <h1 className="text-3xl mb-4">Type {params.slug} Page</h1>
       <ul className="flex flex-wrap gap-3">
         {data.pokemon.map(({ pokemon }) => (
+          // @ts-expect-error Async Server Component
           <PokemonCard
             name={pokemon.name}
             key={pokemon.name}
